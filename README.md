@@ -10,42 +10,58 @@ Built using the MERN Stack (MongoDB, Express.js, React.js, Node.js) and Google G
 
 ### 🔐 Authentication & Security
 
-- User Registration
-- User Login
+- User Registration & Login
 - JWT Authentication
 - Protected Routes
-- Secure Password Hashing using bcrypt
+- Secure Password Hashing with bcrypt
+- Environment Variable Protection
+- Input Validation & Error Handling
 
 ### 📄 Document Management
 
+- Upload PDF, DOCX, TXT, and Markdown Files
+- Cloudinary-Based File Storage
 - Document Dashboard
-- Upload TXT/Word/PDF/MD Documents
-- Rename Uploaded Documents
+- Rename Documents
 - Delete Documents
+- Document Metadata Tracking
+- Upload Limit Configuration (Up to 20 MB)
 
 ### 🤖 AI-Powered Chat
 
-- Ask questions about uploaded documents
-- Context-aware answers
+- Ask Questions About Uploaded Documents
+- Context-Aware Responses
 - Retrieval-Augmented Generation (RAG)
-- Google Gemini AI Integration
+- Google Gemini 2.5 Flash Integration
 - Chat History Persistence
+- Per-Document Conversations
+- Smart Context Construction
 
-### ⚡ Smart Retrieval System
+### ⚡ Smart Retrieval Engine
 
-- Document Chunking
+- Text Extraction
+- Intelligent Chunking
 - Keyword Extraction
-- Relevant Chunk Retrieval
-- Context Construction
-- AI Response Generation
+- Chunk Relevance Scoring
+- Duplicate Chunk Removal
+- Context Optimization
+- Retrieval Debugging Support
 
-### 🎨 Modern UI
+### ☁️ Cloud Storage
 
-- Responsive Design
-- React Router Navigation
+- Cloudinary Integration
+- Secure File Uploads
+- Remote File Management
+- Automatic File Cleanup on Deletion
+
+### 🎨 User Experience
+
+- Responsive UI
+- Dashboard Navigation
 - Loading States
 - Error Handling
-- User-Friendly Experience
+- Modern React Components
+- Clean User Interface
 
 ---
 
@@ -54,11 +70,11 @@ Built using the MERN Stack (MongoDB, Express.js, React.js, Node.js) and Google G
 ### Frontend
 
 - React.js
+- Vite
 - React Router DOM
 - Axios
 - React Hook Form
 - Lucide React
-- Vite
 
 ### Backend
 
@@ -69,11 +85,22 @@ Built using the MERN Stack (MongoDB, Express.js, React.js, Node.js) and Google G
 - JWT
 - bcryptjs
 - Multer
+- Cloudinary
 
 ### AI & NLP
 
-- Google Gemini AI
+- Google Gemini 2.5 Flash
 - Retrieval-Augmented Generation (RAG)
+- Keyword-Based Retrieval Engine
+
+---
+
+## 🚀 Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
+- MongoDB Atlas (Database)
+- Cloudinary (File Storage)
 
 ---
 
@@ -147,7 +174,7 @@ queridoc-ai/
 | Method | Endpoint                        | Description                               | Auth Required |
 | ------ | ------------------------------- | ----------------------------------------- | ------------- |
 | `POST` | `/api/auth/register`            | Register a new user                       | ❌            |
-| `POST` | `/api/auth/login`               | Log in and receive a JWT                  | ❌            |
+| `POST` | `/api/auth/login`               | Login and receive a JWT                   | ❌            |
 | `POST` | `/api/documents/upload`         | Upload and process a document             | ✅            |
 | `GET`  | `/api/documents`                | List all documents for the logged-in user | ✅            |
 | `POST` | `/api/chat/message`             | Send a message and get an AI response     | ✅            |
@@ -196,6 +223,12 @@ JWT_SECRET=your_jwt_secret
 GOOGLE_GEMINI_API_KEY=your_gemini_api_key
 
 CLIENT_URL=http://localhost:5173
+
+MAX_FILE_SIZE=20971520
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
 Start backend:
@@ -266,11 +299,11 @@ GOOGLE_GEMINI_API_KEY=YOUR_API_KEY
 
 ---
 
-## 📚 How It Works
+## 📚 How QueriDoc AI Works
 
 ### Step 1
 
-User uploads a document.
+User uploads a document and It is stored in Cloudinary.
 
 ### Step 2
 
@@ -334,6 +367,9 @@ Queridoc AI follows a RAG pipeline:
 Document Upload
       │
       ▼
+Cloudinary Storage
+      │
+      ▼
 Text Extraction
       │
       ▼
@@ -352,7 +388,7 @@ Chunk Retrieval
 Context Building
       │
       ▼
-Gemini AI
+Gemini 2.5 Flash
       │
       ▼
 Final Answer
@@ -401,32 +437,12 @@ Sarah is a product manager.
 
 - JWT Authentication
 - Password Hashing
-- Protected APIs
+- Protected Routes
 - Environment Variables
 - Input Validation
-- Error Handling
-
----
-
-## 🚀 Deployment
-
-### Frontend
-
-Deploy on:
-
-- Vercel
-
-### Backend
-
-Deploy on:
-
-- Render
-
-### Database
-
-Use:
-
-- MongoDB Atlas
+- File Upload Validation
+- Cloudinary Secure Storage
+- API Error Handling
 
 ---
 
